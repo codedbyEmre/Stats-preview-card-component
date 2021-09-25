@@ -1,0 +1,124 @@
+@import 'configs';
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $fontInter;
+}
+
+body{
+    background-color: $Verydarkblue;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.card{
+    background-color: $Darkdesaturatedblue;
+    max-width: 1000px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 6px;
+    .card-left{
+        padding: 3rem 4rem;
+        width: 50%;
+        h1{
+            font-size: 2rem;
+            color: $White;
+            line-height: 1.4;
+            span{
+                color: $Softviolet;
+            }
+        }
+        p{
+            color: $SlightlytransparentwhiteMain;
+            margin: 2rem 0;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        .stats{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            div{
+                h2{
+                    color: $White;
+                }
+                p{
+                    color: $SlightlytransparentwhiteStat;
+                    text-transform: uppercase;
+                    margin-top: 0.5rem;
+                    font-size: 0.8rem;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+
+    .card-right{
+        width: 50%;
+        position: relative;
+        &::after{
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: $Softviolet;
+            opacity: 1;
+            mix-blend-mode: multiply;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.attribution{
+    position: absolute;
+    bottom: 2rem;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+@media(max-width: 1100px){
+    .card{
+        flex-direction: column;
+        max-width: 400px;
+        width: 100%;
+        .card-left{
+            order: 2;
+            text-align: center;
+            width: 100%;
+            padding: 1rem 2.5rem;
+            h1{
+                font-size: 1.8rem;
+                margin-top: 2rem;
+            }
+            p{
+                margin-top: 1rem;
+            }
+            .stats{
+                margin-top: 0;
+                flex-direction: column;
+            }
+        }
+        .card-right{
+            order: 1;
+            width: 100%;
+        }
+    }
+
+    .attribution{
+        bottom: 0;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}
